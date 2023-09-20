@@ -1,0 +1,152 @@
+@charset "UTF-8";
+
+body {
+    background-color: rgba(229,229,229, 1);
+    height: 80vh;   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+
+    padding: 50px;
+}
+
+/* ===== FOR DEMO ===== */
+.demo {
+    height: 500px; 
+    width: 1200px;
+    margin: 0 auto;  
+    -webkit-box-shadow: -1px 9px 18px -5px rgba(17,17,17,1);
+    -moz-box-shadow: -1px 9px 18px -5px rgba(17,17,17,1);
+    box-shadow: -1px 9px 18px -5px rgba(17,17,17,1);
+    overflow: hidden;
+    background-color: #000;
+    position: relative;
+
+}
+
+.demo-description {
+    flex: 0 0 25%;
+    padding-right: 30px;
+}
+
+.demo-description__title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 40px;
+    letter-spacing: 1.5px;
+    margin: 0;
+}
+
+.demo-description__p {
+    font-size: 17px;
+}
+
+
+/* ====== MAIN CODE ===== */
+.clientes {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+.clientes__div {
+    flex: 0 0 100%;
+    position: relative;
+}
+
+.responsive-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.clientes-info {
+    background-color: rgba(0,0,0, 0.3);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 15%;
+
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    transition: all 0.4s;
+}
+
+.clientes-info__link:link,
+.clientes-info__link:visited {
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+    letter-spacing: 1.8px;
+    margin: 0;
+    text-decoration: none;
+
+    transition: all 0.4s;
+}
+
+.clientes__div:hover .clientes-info {
+    height: 100%;
+    background-color: rgba(0,0,0, 0.6);
+}
+
+
+
+@media only screen and (max-width: 1200px) {
+    body {
+        flex-wrap: wrap;
+    }
+
+    .demo-description { 
+        padding: 0;
+        flex: 0 0 100%;
+        text-align: center;
+    }
+
+}
+
+@media only screen and (max-width: 991px) {
+    .demo-description  {
+        margin-bottom: 30px;
+    }
+
+    .clientes  {
+        height: 900px;
+        flex-wrap: wrap;
+    }
+
+    .clientes__div {
+        flex: 0 0 100%;
+        height: 33.33333%;
+    }
+
+    .responsive-img img {
+        height: 100%;
+    }
+
+    .clientes__div:nth-of-type(2) img {
+        object-position: 50% 70%;
+    }
+
+    .clientes-info {
+        height: 20%
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .clientes__div:nth-of-type(1) img {
+        object-position: 50% 75%;
+    }
+
+    .clientes__div:nth-of-type(3) img {
+        object-position: 50% 60%;
+    }    
+
+    .clientes-info__title {
+        font-size: 25px;
+    }    
+}

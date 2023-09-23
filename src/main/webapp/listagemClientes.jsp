@@ -26,7 +26,7 @@
             <div class="col-md-12">
                 <p>Gerencie seus clientes.</p>
             </div>
-            <div class="col-lg-8 col-md-10 ml-auto mr-auto">
+            <div class="col-lg-10 col-md-10 ml-auto mr-auto">
                 <div class="table-responsive">
                 <table class="table">
                     <thead>

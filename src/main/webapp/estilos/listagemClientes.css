@@ -1,7 +1,6 @@
 @charset "UTF-8";
 body {
     background-color: rgba(229,229,229, 1);
-    height: 60vh;   
     display: flex;
     align-items: center;
     font-family: 'Poppins', sans-serif;

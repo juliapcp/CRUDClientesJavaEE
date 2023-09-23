@@ -3,7 +3,8 @@ package model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.util.UUID;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class DAO {
 	private String driver = "org.postgresql.Driver";
@@ -36,4 +37,30 @@ public class DAO {
 			e.printStackTrace();
 		}
 	}
+	
+	public ArrayList<JavaBeans> listarClientes(){
+		String select = "select * from public.\"Cliente\"";
+		try {
+			Connection con = conectar();
+			PreparedStatement preparedStatement = con.prepareStatement(select);
+			ResultSet rs = preparedStatement.executeQuery();
+			ArrayList<JavaBeans> clientes = new ArrayList<>();
+			while(rs.next()) {
+				String nome = rs.getString("nome");
+				String telefone = rs.getString("telefone");
+				String email = rs.getString("email");
+				JavaBeans cliente = new JavaBeans();
+				cliente.setEmail(email);
+				cliente.setNome(nome);
+				cliente.setTelefone(telefone);
+				clientes.add(cliente);
+			}
+			con.close();
+			return clientes;
+		} catch (Exception e) {
+			return null;
+		}
+		
+	}
+	
 }

@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@page import="model.JavaBeans" %>
+    <%@page import="java.util.ArrayList" %>
+    <%
+    	ArrayList<JavaBeans> clientes = (ArrayList<JavaBeans>) request.getAttribute("clientes");
+    %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,23 +43,27 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="text-center"></td>
-                            <td>Andrew Mike</td>
-                            <td>Develop</td>
-                            <td>2013</td>	
-                            <td class="td-actions text-right">
-                                <a href="#" type="button" rel="tooltip" class="btn btn-info btn-just-icon" data-original-title="" title="">
-                                    <i class="material-icons">person</i>
-                                </a>
-                                <a href="#" type="button" rel="tooltip" class="btn btn-success btn-just-icon" data-original-title="" title="">
-                                    <i class="material-icons">edit</i>
-                                </a>
-                                <a href="#" type="button" rel="tooltip" class="btn btn-danger btn-just-icon" data-original-title="" title="">
-                                    <i class="material-icons">close</i>
-                                </a>
-                            </td>
-                        </tr>
+                    <%if(clientes != null){ %>
+	                    <%for(JavaBeans cliente : clientes ){ %>
+	                        <tr>
+	                            <td class="text-center"></td>
+	                            <td><%=cliente.getNome()%></td>
+	                            <td><%=cliente.getEmail()%></td>
+	                            <td><%=cliente.getTelefone()%></td>	
+	                            <td class="td-actions text-right">
+	                                <a href="#" type="button" rel="tooltip" class="btn btn-info btn-just-icon" data-original-title="" title="">
+	                                    <i class="material-icons">person</i>
+	                                </a>
+	                                <a href="#" type="button" rel="tooltip" class="btn btn-success btn-just-icon" data-original-title="" title="">
+	                                    <i class="material-icons">edit</i>
+	                                </a>
+	                                <a href="#" type="button" rel="tooltip" class="btn btn-danger btn-just-icon" data-original-title="" title="">
+	                                    <i class="material-icons">close</i>
+	                                </a>
+	                            </td>
+	                        </tr>
+	                        <%} %>
+                        <%} %>
                     </tbody>
                 </table>
                 </div>
